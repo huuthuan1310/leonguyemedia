@@ -1,0 +1,110 @@
+$primary: #01579B;
+.container {
+  width: 100vw;
+  height: 100vh;
+  .sidenav {
+    width: 300px;
+    perfect-scrollbar {
+      height: 100%;
+    }
+    .header {
+      height: 200px; // background-color: #1976D2;
+      background-image: url('http://hdqwalls.com/download/minimalism-triangle-art-hd-1600x1200.jpg');
+      background-position: center;
+      background-size: 300px 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      >img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+      >button {
+        color: white;
+      }
+      .name {
+        margin-bottom: 30px;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+        max-width: 230px;
+        color: white;
+        font-weight: 700;
+      }
+    }
+    .btn-item {
+      width: 100%;
+      text-align: left;
+      .item {
+        display: flex;
+        align-items: center;
+        >div {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  .toolbar {
+    position: absolute;
+    z-index: 1;
+    background: rgba(1, 87, 155, 0.5);
+    transition: 0.5s;
+    &.top {
+      background: transparent;
+      transition: 0.5s;
+    }
+    .menu-icon {
+      cursor: pointer;
+    }
+  }
+}
+
+.footer {
+  padding: 15px 0;
+  display: flex;
+  .left,
+  .middle,
+  .right {
+    width: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $primary;
+    flex-direction: column;
+    .title{
+      font-weight: bold;
+    }
+  }
+  .left {
+    .logo {
+      background-image: url('../assets/images/logo-2017-blue.png');
+      background-size: 100px 65px;
+      height: 65px;
+      width: 100px;
+      background-repeat: no-repeat;
+      margin-top: 20px;
+    }
+  }
+  .middle {
+    .social {
+      padding-top: 20px;
+      font-size: 30px;
+    }
+  }
+  .right {
+    .detail {
+      padding-top: 20px;
+      text-align: center;
+    }
+  }
+}
+
+.copyright {
+  text-align: center;
+  padding-bottom: 15px;
+  color: $primary;
+}
