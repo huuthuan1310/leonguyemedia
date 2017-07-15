@@ -69,6 +69,7 @@ $primary: #01579B;
       height: 45px;
       background-size: 200px 45px;
       background-repeat: no-repeat;
+      min-width: 200px;
     }
     .block {
       width: calc(100% / 3);
@@ -83,17 +84,21 @@ $primary: #01579B;
 }
 
 .footer {
-  padding: 15px 0;
+  padding: 15px 0 0 0;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   .left,
   .middle,
   .right {
+    min-width: 210px;
     width: calc(100% / 3);
     display: flex;
     justify-content: center;
     align-items: center;
     color: $primary;
     flex-direction: column;
+    padding-bottom: 25px;
     .title {
       font-weight: bold;
     }
