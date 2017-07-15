@@ -9,8 +9,8 @@
 @include mat-core();
 // Define the theme.
 $candy-app-primary: mat-palette($mat-light-blue, 900);
-$candy-app-accent : mat-palette($mat-pink, A200, A100, A400);
-$candy-app-theme : mat-light-theme($candy-app-primary, $candy-app-accent);
+$candy-app-accent: mat-palette($mat-pink, A200, A100, A400);
+$candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
 // Include the theme styles for only specified components.
 // @include mat-core-theme($candy-app-theme);
 // @include mat-button-theme($candy-app-theme);
@@ -22,7 +22,15 @@ body {
 }
 
 .menu .mat-list-item .mat-list-item-content {
-    padding: 0 !important;
+  padding: 0 !important;
+}
+
+login .body .btn-login .mat-button {
+  font-size: 38px;
+  font-family: roboto-thin;
+  padding: 20px 90px;
+  color: #fafafa;
+  background: rgba(0, 0, 0, 0.07);
 }
 
 

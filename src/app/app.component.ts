@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from './auth/auth.service';
+// import { MdDialog, MdDialogConfig } from '@angular/material';
 import * as $ from 'jquery';
+import { LoginComponent } from './login/login.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,22 +15,28 @@ export class AppComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private router: Router
+    // public dialog: MdDialog
   ) {
     auth.handleAuthentication();
   }
   ngOnInit() {
-    this.profile = '';
     this.route = '';
-    setTimeout(() => {
-      this.route = this._route.children[0].snapshot.data.route;
-    });
-    if (this.auth.userProfile) {
-      this.profile = this.auth.userProfile;
-    } else {
-      this.auth.getProfile((err, profile) => {
-        this.profile = profile;
+    if (this.auth.authenticated) {
+      setTimeout(() => {
+        this.route = this._route.children[0].snapshot.data.route;
       });
+      if (this.auth.userProfile) {
+        this.profile = this.auth.userProfile;
+      } else {
+        this.auth.getProfile((err, profile) => {
+          this.profile = profile;
+          console.log(this.profile);
+        });
+      }
+    } else {
+      // this.router.navigate(['/login']);
     }
   }
   scrollToTop(e) {

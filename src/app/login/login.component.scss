@@ -1,0 +1,46 @@
+// component css goes here
+.body {
+  background-image: url('../../assets/images/background.jpg');
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-size: 100% 100%;
+  transition: 0.5s;
+  .logo {
+    width: 580px;
+    height: 129px;
+    background-image: url('../../assets/images/logo-white-l.png');
+    background-size: 580px 129px;
+    background-repeat: no-repeat;
+  }
+  .title {
+    font-size: 52px;
+    color: #01579B;
+    font-family: roboto-thin;
+    background-color: #fafafa;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .notice {
+    font-size: 45px;
+    color: #fafafa;
+    padding: 100px 0 10px 0;
+    font-family: roboto-thin;
+  }
+  .notice-1 {
+    font-size: 25px;
+    padding-top: 138px;
+    text-align: center;
+    color: #fafafa;
+    font-family: roboto-thin;
+    a {
+      color: #fafafa;
+      text-decoration: inherit;
+      :hover{
+          text-decoration: underline;
+      }
+    }
+  }
+}

@@ -1,14 +1,14 @@
-<md-sidenav-container class="container">
+<md-sidenav-container *ngIf="auth.isAuthenticated()" class="container">
   <md-sidenav #sidenav class="sidenav">
     <perfect-scrollbar>
       <div class="header">
-        <img src="{{ auth.isAuthenticated() ? profile.picture : '../assets/images/user.png' }}" alt="">
+        <img src="{{ auth.isAuthenticated() ? profile?.picture : '../assets/images/user.png' }}" alt="">
         <!-- <div *ngIf="auth.isAuthenticated()" class="name">{{ profile.name }}</div> -->
         <md-menu xPosition="before" yPosition="below" [overlapTrigger]="false" #appMenu="mdMenu">
           <button (click)="auth.logout();" md-menu-item> Log Out </button>
         </md-menu>
         <button *ngIf="auth.isAuthenticated()" md-button [mdMenuTriggerFor]="appMenu">
-          {{ profile.name }} <i class="material-icons">arrow_drop_down</i>
+          {{ profile?.name }} <i class="material-icons">arrow_drop_down</i>
         </button>
         <button *ngIf="!auth.isAuthenticated()" md-button (click)="auth.login();sidenav.toggle();">
           Log In
@@ -35,6 +35,14 @@
           <button *ngIf="auth.isAuthenticated()" color="{{route === 'contact' ? 'primary' : ''}}" class="btn-item" (click)="sidenav.toggle(); route = 'contact'"
             routerLink="/contact" md-button>
             <div class="item">
+              <i class="material-icons">perm_contact_calendar</i><div>Videos</div>
+            </div>
+          </button>
+        </md-list-item>
+        <md-list-item>
+          <button *ngIf="auth.isAuthenticated()" color="{{route === 'contact' ? 'primary' : ''}}" class="btn-item" (click)="sidenav.toggle(); route = 'contact'"
+            routerLink="/contact" md-button>
+            <div class="item">
               <i class="material-icons">perm_contact_calendar</i><div>Contact</div>
             </div>
           </button>
@@ -46,7 +54,14 @@
     </perfect-scrollbar>
   </md-sidenav>
   <md-toolbar class="toolbar top" color="primary">
-    <md-icon class="menu-icon" (click)="sidenav.open()">menu</md-icon>
+    <div class="block menu">
+      <md-icon class="menu-icon" (click)="sidenav.open()">menu</md-icon>
+    </div>
+    <div class="block">
+      <div class="logo"></div>
+    </div>
+    <div class="block">
+    </div>
   </md-toolbar>
   <perfect-scrollbar (ps-scroll-y)="scrollToTop($event)" style="height: 100%">
     <router-outlet></router-outlet>
@@ -72,7 +87,8 @@
       </div>
     </div>
     <div class="copyright">
-      Copyright © 2017. Leo Nguyen
+      Copyright © 2017. NHF
     </div>
   </perfect-scrollbar>
 </md-sidenav-container>
+<login *ngIf="!auth.isAuthenticated()"></login>

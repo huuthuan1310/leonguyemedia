@@ -2,7 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MdToolbarModule, MdIconModule, MdSidenavModule, MdListModule, MdButtonModule, MdMenuModule } from '@angular/material';
+import {
+  MdToolbarModule,
+  MdIconModule,
+  MdSidenavModule,
+  MdListModule,
+  MdButtonModule,
+  MdMenuModule,
+  MdDialogModule
+} from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import 'hammerjs';
 
@@ -22,6 +30,9 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { AppService } from './app.service';
 import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
+import { VideosModule } from './videos/videos.module';
+import { LoginModule } from './login/login.module';
+import { LoginComponent } from './login/login.component';
 
 const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -34,8 +45,8 @@ const appRoutes: Routes = [
     data: { route: 'home' }
   },
   // {
-  //   path: 'callback',
-  //   component: HomeComponent
+  //   path: 'login',
+  //   component: LoginComponent
   // },
   {
     path: 'album',
@@ -67,6 +78,8 @@ const appRoutes: Routes = [
     HttpModule,
     HomeModule,
     AlbumModule,
+    VideosModule,
+    LoginModule,
     ContactModule,
     BrowserAnimationsModule,
     MdToolbarModule,
@@ -76,6 +89,7 @@ const appRoutes: Routes = [
     MdListModule,
     MdButtonModule,
     MdMenuModule,
+    MdDialogModule,
     Angular2ImageGalleryModule,
     RouterModule.forRoot(appRoutes),
     PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG)
