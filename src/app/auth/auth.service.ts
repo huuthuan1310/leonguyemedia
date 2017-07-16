@@ -12,7 +12,7 @@ export class AuthService {
     domain: 'leonguyen.auth0.com',
     responseType: 'token id_token',
     audience: 'https://leonguyen.auth0.com/userinfo',
-    redirectUri: 'http://localhost:4200/callback',
+    redirectUri: 'http://192.168.23.5:4200/callback',
     scope: 'openid profile'
   });
 

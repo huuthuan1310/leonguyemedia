@@ -29,10 +29,14 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { AppService } from './app.service';
-import { Angular2ImageGalleryModule } from 'angular2-image-gallery';
 import { VideosModule } from './videos/videos.module';
 import { LoginModule } from './login/login.module';
 import { LoginComponent } from './login/login.component';
+import { GenealogyModule } from './genealogy/genealogy.module';
+import { EventsModule } from './events/events.module';
+import { VideosComponent } from './videos/videos.component';
+import { GenealogyComponent } from './genealogy/genealogy.component';
+import { EventsComponent } from './events/events.component';
 
 const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -44,10 +48,21 @@ const appRoutes: Routes = [
     component: HomeComponent,
     data: { route: 'home' }
   },
-  // {
-  //   path: 'login',
-  //   component: LoginComponent
-  // },
+  {
+    path: 'video',
+    component: VideosComponent,
+    data: { route: 'video' }
+  },
+  {
+    path: 'event',
+    component: EventsComponent,
+    data: { route: 'event' }
+  },
+  {
+    path: 'genealogy',
+    component: GenealogyComponent,
+    data: { route: 'genealogy' }
+  },
   {
     path: 'album',
     component: AlbumComponent,
@@ -81,6 +96,8 @@ const appRoutes: Routes = [
     VideosModule,
     LoginModule,
     ContactModule,
+    GenealogyModule,
+    EventsModule,
     BrowserAnimationsModule,
     MdToolbarModule,
     MdIconModule,
@@ -90,7 +107,6 @@ const appRoutes: Routes = [
     MdButtonModule,
     MdMenuModule,
     MdDialogModule,
-    Angular2ImageGalleryModule,
     RouterModule.forRoot(appRoutes),
     PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG)
   ],

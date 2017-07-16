@@ -1,4 +1,4 @@
-<md-sidenav-container *ngIf="auth.isAuthenticated()" class="container">
+<md-sidenav-container *ngIf="auth.isAuthenticated()" class="sidenav-container">
   <md-sidenav #sidenav class="sidenav">
     <perfect-scrollbar>
       <div class="header">
@@ -27,15 +27,31 @@
           <button *ngIf="auth.isAuthenticated()" color="{{route === 'album' ? 'primary' : ''}}" class="btn-item" (click)="sidenav.toggle(); route = 'album'"
             routerLink="/album" md-button>
             <div class="item">
-              <i class="material-icons">photo_album</i><div>Albums</div>
+              <i class="material-icons">photo_library</i><div>Albums</div>
             </div>
           </button>
         </md-list-item>
         <md-list-item>
-          <button *ngIf="auth.isAuthenticated()" color="{{route === 'contact' ? 'primary' : ''}}" class="btn-item" (click)="sidenav.toggle(); route = 'contact'"
-            routerLink="/contact" md-button>
+          <button *ngIf="auth.isAuthenticated()" color="{{route === 'video' ? 'primary' : ''}}" class="btn-item" (click)="sidenav.toggle(); route = 'video'"
+            routerLink="/video" md-button>
             <div class="item">
-              <i class="material-icons">perm_contact_calendar</i><div>Videos</div>
+              <i class="material-icons">video_library</i><div>Videos</div>
+            </div>
+          </button>
+        </md-list-item>
+        <md-list-item>
+          <button *ngIf="auth.isAuthenticated()" color="{{route === 'event' ? 'primary' : ''}}" class="btn-item" (click)="sidenav.toggle(); route = 'event'"
+            routerLink="/event" md-button>
+            <div class="item">
+              <i class="material-icons">event</i><div>Events</div>
+            </div>
+          </button>
+        </md-list-item>
+        <md-list-item>
+          <button *ngIf="auth.isAuthenticated()" color="{{route === 'genealogy' ? 'primary' : ''}}" class="btn-item" (click)="sidenav.toggle(); route = 'genealogy'"
+            routerLink="/genealogy" md-button>
+            <div class="item">
+              <i class="material-icons">device_hub</i><div>Genealogy</div>
             </div>
           </button>
         </md-list-item>

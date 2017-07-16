@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class AppService {
     constructor(public http: Http) { }
-    private url = "https://www.googleapis.com/drive/v2/files?q='0B1p9BpazNQwDaVJqY2lPbkRsemM'+in+parents&key=AIzaSyC25h300nIJItKAiFObWdwrRLvWMV4pewA";  // URL to web API
+    private url = "https://www.googleapis.com/drive/v2/files?q='0B1p9BpazNQwDby1wZWxhbFdrU1E'+in+parents&key=AIzaSyC25h300nIJItKAiFObWdwrRLvWMV4pewA";  // URL to web API
     getListImage(): Observable<ImageModel[]> {
         return this.http.get(this.url)
             .map(this.extractData)
@@ -21,13 +21,17 @@ export class AppService {
         body.items.forEach(images => {
             if (images.webContentLink) {
                 let obj = {
-                    link: images.webContentLink.replace('&export=download', ''),
-                    thumb: images.thumbnailLink
+                    // link: images.webContentLink.replace('&export=download', ''),
+                    link: images.thumbnailLink.replace('=s220', ''),
+                    thumb: images.thumbnailLink,
+                    small: images.thumbnailLink,
+                    medium: images.thumbnailLink.replace('=s220', ''),
+                    big: images.thumbnailLink.replace('=s220', '')
                 };
                 arrayImage.push(obj);
             }
         });
-        console.log('array', arrayImage);
+        console.log('array', body.items);
         return arrayImage;
     }
     private handleError(error: any) {

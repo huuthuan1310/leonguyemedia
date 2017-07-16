@@ -1,5 +1,5 @@
 $primary: #01579B;
-.container {
+.sidenav-container {
   width: 100vw;
   height: 100vh;
   .sidenav {
@@ -50,8 +50,8 @@ $primary: #01579B;
   }
   .toolbar {
     position: absolute;
-    z-index: 1;
-    background: rgba(1, 87, 155, 0.5);
+    z-index: 10000;
+    background: rgba(1, 87, 155, 0.8);
     transition: 0.5s;
     &.top {
       background: transparent;

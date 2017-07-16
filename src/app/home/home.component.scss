@@ -8,4 +8,17 @@
   align-items: center;
   color: white;
   font-weight: bold;
+  
 }
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    align-items: center;
+    .image{
+      // background-size: 100px 100px;
+      width: 100px;
+      height: 100px;
+      background-position: center;
+    }
+  }

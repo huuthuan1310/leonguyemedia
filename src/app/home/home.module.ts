@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './home.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { NgxGalleryModule } from 'ngx-gallery';
+
 
 const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -12,7 +14,8 @@ const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 @NgModule({
   imports: [
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    NgxGalleryModule
   ],
   declarations: [
     HomeComponent,
