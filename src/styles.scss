@@ -18,7 +18,7 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent);
 @include angular-material-theme($candy-app-theme);
 body {
   margin: 0;
-  font-family: 'Roboto-Light' !important;
+  font-family: 'roboto-light' !important;
 }
 
 .menu .mat-list-item .mat-list-item-content {
