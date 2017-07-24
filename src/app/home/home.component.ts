@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
 import { AppService } from '../app.service';
+import { GapiUserService } from '../auth/gauth.service';
 @Component({
   moduleId: module.id,
   selector: 'home',
@@ -10,14 +10,13 @@ import { AppService } from '../app.service';
 export class HomeComponent implements OnInit {
   images;
   constructor(
-    public auth: AuthService,
-    private app: AppService
+    private app: AppService,
+    private gapiUserService: GapiUserService
   ) {
-    auth.handleAuthentication();
   }
   ngOnInit() {
     this.images = [];
-    this.app.getListImage().subscribe((images: any) => {
+    this.app.getListImage('0B1p9BpazNQwDaVJqY2lPbkRsemM').subscribe((images: any) => {
       this.images = images;
       console.log('home', images);
       // callback();
@@ -26,4 +25,14 @@ export class HomeComponent implements OnInit {
       // callback();
     });
   };
+  signIn(): void {
+    this.gapiUserService.signIn();
+  }
+  isSignedIn(): boolean {
+    return this.gapiUserService.isUserSignedIn();
+  }
+  getToken() {
+    this.gapiUserService.getInfo(this.gapiUserService.getToken()).subscribe((res) => { console.log(res) }, (err) => { console.log(err) });
+    console.log(this.gapiUserService.getToken());
+  }
 }

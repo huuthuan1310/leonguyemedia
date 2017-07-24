@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
 @Component({
   moduleId: module.id,
@@ -9,10 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AlbumComponent implements OnInit {
   constructor(
-    public auth: AuthService,
     public router: Router
-  ) {
-    auth.handleAuthentication();
-  }
+  ) { }
   ngOnInit() { }
 }
